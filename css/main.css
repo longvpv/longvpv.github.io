@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Make footer always at bottom of our screen */
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+
+  font-family: 'Rubik', sans-serif;
+}
+
+body > main {
+  flex: 1 1 auto;
+}
+
+/* Override link style */
+a {
+  color: rgba(255, 106, 1, 1);
+}
+a:hover {
+  color: rgb(255, 106, 1, .75);
+}
+
+
+
+/* Add underline for all h1 */
+h1.with-underline {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+h1.with-underline::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: 0;
+  right: 0;
+
+  width: 5rem;
+  height: .25rem;
+  margin: 0 auto;
+  border-radius: .25rem;
+
+  background-color: #444;
+}
+
+
+/* Reset ul style */
+ul {
+  list-style-type: none;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+/* Loading */
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.loader {
+  display: inline-block;
+  margin-left: 1rem;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #ff6d70;
+  animation: loader 2s infinite ease;
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #ff6d70;
+  animation: loader-inner 2s infinite ease-in;
+}
+@keyframes loader {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(180deg);}
+  50% { transform: rotate(180deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes loader-inner {
+  0% { height: 0%;}
+  25% { height: 100%;}
+  50% { height: 100%;}
+  75% { height: 100%;}
+  100% { height: 0%;}
+}
